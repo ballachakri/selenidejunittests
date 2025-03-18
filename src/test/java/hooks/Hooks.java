@@ -10,8 +10,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.OutputType;
+
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+
 import static com.codeborne.selenide.Selenide.open;
 
 public class Hooks {
@@ -20,7 +22,9 @@ public class Hooks {
     public static void setUpConfig() {
 
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
-                .screenshots(true).includeSelenideSteps(true)
+                .screenshots(true)
+                .savePageSource(true)
+                .includeSelenideSteps(true)
         );
     }
 
@@ -40,7 +44,7 @@ public class Hooks {
     }
 
     @AfterAll
-    public static void tearDown(){
+    public static void tearDown() {
 
         WebDriverRunner.getWebDriver().quit();
 
