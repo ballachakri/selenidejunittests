@@ -12,7 +12,6 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class SearchPage {
 
-
     @Step("Search item '{0}'")
     public SearchPage searchItem(String item) {
         $(By.cssSelector("input[name='search']")).shouldBe(visible).setValue(item).pressEnter();
@@ -21,6 +20,6 @@ public class SearchPage {
 
     @Step("Return search results list")
     public List<SelenideElement> getSearchResultsList() {
-      return $$(By.cssSelector("div[class='product-thumb'] h4 a")).stream().toList();
+        return $$(By.cssSelector("div[class='product-thumb'] h4 a")).stream().toList();
     }
 }

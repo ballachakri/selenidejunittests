@@ -47,7 +47,6 @@ public class Hooks {
     public static void tearDown() {
 
         WebDriverRunner.getWebDriver().quit();
-
     }
 
 }
